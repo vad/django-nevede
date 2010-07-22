@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!-- ex: set ts=2 softtabstop=2 shiftwidth=2: -->
+{% comment %}
+
+LICENSE: AGPL 3.0
+Author: Name: Davide, Surname: Setti, email: NAME.SURNAME@gmail.com
+Copyright: Fondazione Bruno Kessler (www.fbk.eu), 2008
+
+{% endcomment %}
+{% load clevercss_tags %}{% load google_analytics_tags %}
+<html>
+<head>
+  <title>{% block title %}Nevede{% endblock %}</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{{MEDIA_URL}}/images/table_insert.ico" />
+  <link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}/css/reset-fonts-grids.css"> 
+  <link rel="stylesheet" type="text/css" href="{{"default.ccss"|clevercss}}"> 
+  <link rel="stylesheet" type="text/css" href="{{"bluefreedom2.ccss"|clevercss}}"> 
+  <link rel="stylesheet" type="text/css" href='{{"datePicker.ccss"|clevercss}}'> 
+{% if debug %}
+  <script type="text/javascript" src="{{MEDIA_URL}}/js/jquery-1.3.2.js"></script>
+{% else %}
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+{% endif %}
+</head>
+<body>
+  <div id="doc">
+    <div id="my-border" style="padding-top:20px">
+      <div id="hd">
+        <h1><a href="{% url nevede.meetings.views.index %}">Nevede</a></h1>
+        <h2>Event organizer</h2>
+      </div>
+
+      <div id="breadcrumbs">
+        {% block breadcrumbs %}<a href="{% url nevede.meetings.views.index %}"><img src="/meetings/media/images/fugue/home.png" style="vertical-align:bottom" /> Home</a>{% endblock %}
+      </div>
+      
+      <div id="bd">
+        {% block content %}{% endblock %}
+      </div>
+
+      <div id="footer">
+        {% block footer %}
+          <p> <a href="http://bitbucket.org/vad/nevede/">nevede</a> project | <a href="http://bitbucket.org/vad/nevede/get/tip.zip">download</a> source code</p>
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="{{MEDIA_URL}}/js/shadedborder.js"></script>
+
+  <script>
+  $(document).ready(function(){
+    // adjust width
+    if ($('table.choices').length){
+        if ($('table.choices').width() > $('#doc').width())
+            $('#doc').width($('table.choices').width() + 50);
+    }
+
+    // set border
+    var shadowedBorder = RUZEE.ShadedBorder.create({ corner:12, shadow:28, border:1 });
+    shadowedBorder.render('my-border');
+
+    // create classes for form elements to fix IE6 bugs
+    var b = $.browser;
+    if (b.msie && b.version.substr(0,3) == '6.0') {
+      $('input').each(function(){
+        var t = $(this);
+        t.addClass('type'+t.attr('type'));
+      });
+    }
+  });
+  </script>
+  {% google_analytics '' %}
+</body>
+</html>
+
+

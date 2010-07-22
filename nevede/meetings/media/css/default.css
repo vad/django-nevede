@@ -1,0 +1,289 @@
+#hd {
+  height: 50px;
+  font-family: sans-serif;
+}
+
+#hd h1 a {
+  color: black;
+  text-decoration: none;
+}
+
+#bd {
+  margin: 25px;
+}
+
+#doc {
+  margin-top: 10px;
+}
+
+#footer {
+  text-align: center;
+  height: 50px;
+  margin-top: 30px;
+  padding: 0 30px;
+}
+
+#footer p {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 8px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 167%;
+}
+
+h2 {
+  font-size: 138.5%;
+}
+
+blockquote {
+  margin: 15px 0 15px 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+th,
+tr,
+td {
+  vertical-align: top;
+}
+
+td.selected {
+  background: lightBlue;
+}
+
+tr.hour-selector {
+  height: 40px;
+}
+
+tr.hour-selector input {
+  margin: 5px;
+  width: 185px;
+}
+
+td.choice {
+  background: #d3d3d3;
+  text-align: center;
+  padding: 3px;
+  border: 1px solid #a3a3a3;
+}
+
+td.choice p {
+  margin: 0 auto;
+}
+
+tr.user-choice {
+  height: 23px;
+}
+
+tr.user-choice td {
+  width: 50px;
+}
+
+tr.user-choice td.user-choice-cell {
+  border-width: 1px;
+  padding: 3px;
+  text-align: center;
+  margin: auto auto;
+}
+
+tr.user-choice td.checkbox-container {
+  padding: 3px;
+  text-align: center;
+}
+
+tr.user-choice td.op {
+  background: #66cd00;
+  color: green;
+}
+
+tr.user-choice td.np {
+  background: #cd2626;
+}
+
+tr.total-row {
+  text-align: center;
+  height: 23px;
+}
+
+tr.total-row .np {
+  color: red;
+}
+
+tr.total-row .op {
+  color: green;
+}
+
+table.choices {
+  border-collapse: separate;
+  border-spacing: 3px;
+}
+
+.right {
+  float: right;
+  width: 200px;
+}
+
+.username {
+  background: #d3d3d3;
+  padding: 3px;
+  padding-left: 10px;
+  border: 1px solid #a3a3a3;
+}
+
+ul li {
+  list-style-type: square;
+}
+
+ol li {
+  list-style-type: lower-roman;
+}
+
+ul,
+ol {
+  padding: 5px 0 0 20px;
+}
+
+ul.meeting-list {
+  padding: 10px 0 15px 20px;
+}
+
+h2 {
+  margin: 3px 0;
+}
+
+p {
+  margin: 2px 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+textarea {
+  overflow: auto;
+}
+
+.form-create input,
+.form-create textarea,
+.form-create div.multidate_div {
+  width: 600px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.form-create input.button {
+  float: right;
+  margin-right: 15px;
+  margin-top: 30px;
+}
+
+.form-create th {
+  padding-top: 5px;
+}
+
+.form-create input[type="checkbox"],
+.form-create input[type="text"],
+.form-create textarea {
+  margin-top: 5px;
+}
+
+.form-create input.typecheckbox,
+.form-create input.typetext,
+.form-create textarea {
+  margin-top: 5px;
+}
+
+.form-create .field-help {
+  float: right;
+  margin-bottom: 30px;
+  margin-top: -20px;
+}
+
+.form-create label {
+  font-weight: normal;
+}
+
+.form-create .errorlist li {
+  color: red;
+}
+
+.right ul {
+  padding: 20px 0 15px 20px;
+}
+
+.yellow_message {
+  padding: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  background: #fbc77d;
+}
+
+input[type="submit"] {
+  width: 100px;
+}
+
+input.typesubmit {
+  width: 100px;
+}
+
+.creole-preview {
+  background: #fffe8f;
+  border: 1px solid #aaaaaa;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.corner-all {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.inputHintOverlay {
+  color: #999999;
+}
+
+.meeting-comment {
+  margin: 15px 0;
+}
+
+.comment-form-container label,
+.comment-form-container input {
+  display: block;
+}
+
+.comment-form-container fieldset {
+  padding: 10px;
+}
+
+.comment-form-container fieldset legend {
+  padding: 0 4px;
+}
+
+.comment-form-container input,
+.comment-form-container textarea {
+  width: 400px;
+}
+
+.comment-form-container p.submit input {
+  width: 100px;
+  display: inline;
+}
+
+.comment-form-container input#submit {
+  width: 200px;
+}

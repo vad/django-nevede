@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+{% load nevedemarkup %}
+{% load comments %}
+
+{% comment %}
+
+LICENSE: AGPL 3.0
+Author: Name: Davide, Surname: Setti, email: NAME.SURNAME@gmail.com
+Copyright: Fondazione Bruno Kessler (www.fbk.eu), 2008-2010
+
+{% endcomment %}
+
+
+{% block title %}{{meeting.title}} details - {{block.super}}{% endblock %}
+{% block breadcrumbs %}{{block.super}} · Meeting details{% endblock %}
+
+{% block content %}
+<script type="text/javascript"
+    src="{{MEDIA_URL}}/js/jquery.inputHintOverlay.min.js"></script>
+
+{% if created_now %}
+<div class="yellow_message">
+    <p>Your event has been created!</p>
+    <p>Send this <b><a href=".">permalink</a></b> to other attendants</p>
+</div>
+{% endif %}
+<h2>{{meeting.title}}</h2>
+
+<p><b>Opened:</b> {{meeting.created|date:"l, d M Y P"}}</p>
+<p><b>Link to this page:</b> <a href=".">permalink</a></p>
+{% if meeting.description %}
+<p><b>Description:</b>
+{{meeting.description|escape|creole}}</p>
+{% endif %}
+<br/><br/>
+<form method="post" action="./" name="vote_form"
+    onsubmit="return validate_vote();">{% csrf_token %}
+<table class="choices" >
+<tr>
+    <td></td>
+    {% for m, cs in months %}
+        <td class="choice" colspan="{{cs}}" >
+        <p>{{m|date:"F Y"}}</p>
+        </td>
+    {% endfor %}
+</tr>
+<tr>
+    <td></td>
+    {% for d, cs in days %}
+        <td class="choice" colspan="{{cs}}" >
+        {{d|date:"D d"}}
+        </td>
+    {% endfor %}
+</tr>
+{% comment %}
+<tr>
+    <td></td>
+    {% for c in choices %}
+        <td class="choice">
+        {{c.date|naturalday:"D d"}}
+        </td>
+    {% endfor %}
+</tr>
+{% endcomment %}
+<tr>
+    <td></td>
+    {% for c in choices %}
+        <td class="choice">
+        {{c.text}}
+        </td>
+
+    {% endfor %}
+</tr>
+
+{% for p in participations %}
+<tr class="user-choice">
+    <td class="username">{{p.user}}</td>
+    {% for presence in p.choices %}
+        <td class="user-choice-cell {{presence|yesno:"op,np"}}">
+            {{presence|yesno:"OK,"}}
+        </td>
+    {% endfor %}
+</tr>
+{% endfor %}
+<tr class="user-choice">
+    <td><input name="username" title="Your name" /></td>
+    {% for c in choices %}
+        <td class="checkbox-container">
+        <input type="checkbox" name="choices" value="{{c.pk}}" />
+        </td>
+
+    {% endfor %}
+</tr>
+
+<!-- total -->
+<tr class="total-row" >
+    <td>Total</td>
+    {% for k in total %}
+        <td class="total-cell {{k|yesno:"op,np"}}">
+        {{k}}
+        </td>
+    {% endfor %}
+</tr>
+</table>
+<p><span class="a" id="selectall">select all</span>
+/ <span class="a" id="unselectall">unselect all</span></p><br/>
+<input type="submit" value="Vote" />
+</form>
+<br/><br/><br/><br/>
+
+
+{% get_comment_count for meeting as comment_count %}
+<h2>{{comment_count}} comments to this meeting</h2>
+<a href="#add_comment">Add a comment</a>
+<br/>
+
+{% get_comment_list for meeting as comment_list %}
+{% for comment in comment_list %}
+<div class="meeting-comment">
+<h4>
+    {% if comment.url %}
+        <a href="{{comment.url}}">{{comment.user_name}}</a>
+    {% else %}
+        {{comment.user_name}}
+    {% endif %}
+    <span class="meeting-comment-date"> - {{comment.submit_date|date:"d M Y - P"}}</span>
+</h4>
+<p>{{comment.comment|creole}}</p>
+</div>
+{% endfor %}
+
+
+<a name="add_comment" ></a>
+{% get_comment_form for meeting as form %}
+<div class="comment-form-container">
+<form action="{% comment_form_target %}" method="POST">{% csrf_token %}
+    <fieldset>
+        <legend>Comment this meeting</legend>
+    {% for field in form %}
+        {% if field.is_hidden %}
+            {{ field }}
+        {% else %}
+            <p
+                {% if field.errors %} class="error"{% endif %}
+                {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+                {% if field.errors %}{{ field.errors }}{% endif %}
+                {{ field.label_tag }} {{ field }}
+            </p>
+        {% endif %}
+    {% endfor %}
+    <p class="submit">
+        <input type="submit" name="submit" class="submit-post" value="Post" />
+        <input type="submit" name="preview" class="submit-preview" value="Preview" />
+    </p>
+    </fieldset>
+</form>
+</div>
+
+<script type="text/javascript">
+// javascript form validation
+function validate_vote(){
+    var username = $('input[name="username"]');
+    if (username.val() == ""){
+        alert ("Please insert your name");
+
+    // focus the input box
+    username.focus();
+
+    // do not submit
+    return false;
+}
+
+    return true;
+}
+
+$(document).ready(function(){
+    $('input[name="next"]').val("/meetings/view/{{meeting.hidden_id}}/");
+
+    //(un)select all
+    $('#selectall').bind('click', function(){
+        $('input[name=choices]').attr('checked', true);
+    })
+    $('#unselectall').bind('click', function(){
+        $('input[name=choices]').attr('checked', false);
+    });
+    
+    //input hints (eg: "Your name" over the name field)
+    $('form').inputHintOverlay(2,5);
+});
+
+</script>
+
+{% endblock %}

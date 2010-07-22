@@ -1,0 +1,84 @@
+{% comment %}
+
+LICENSE: AGPL 3.0
+Author: Name: Davide, Surname: Setti, email: NAME.SURNAME@gmail.com
+Copyright: Fondazione Bruno Kessler (www.fbk.eu), 2008
+
+{% endcomment %}
+<table id="{{date}}">
+<tbody>
+<tr id="{{date}}_1" class="hour-selector">
+<td><input class="choice"/></td>
+<td><input class="choice"/></td>
+<td><input class="choice"/></td>
+</tr>
+</tbody>
+</table>
+<p style="float:right">
+<a href="javascript:void(0)" onclick="copyDate('{{date}}')">Copy this date</a> / 
+<a href="javascript:void(0)" onclick="pasteDate('{{date}}')">Paste date</a> /
+<a href="javascript:void(0)" onclick="addrow('{{date}}')">Add new row</a>
+</p>
+<input type=hidden class="hours-json" id="{{date}}_field" name={{name}} />
+
+<script>
+fieldChange = window.fieldChange || function(){
+    var date = $(this).parent() //td
+        .parent().parent().parent()[0].id;
+    var a = new Array();
+    $.each($('input', $('#'+date)),
+        function(i,v){
+            a.push($(v).val());
+        }
+    );
+    $('#'+date+'_field').val($.toJSON(a));
+};
+
+$(document).ready(function(){
+    var field = {{date}} +'_field';
+
+    $('#{{date}} input').val('').change(fieldChange);
+
+});
+
+
+copyDate = window.copyDate || function(day){
+    window.copiedDate = $('#'+day+'_field').val();
+};
+
+
+pasteDate = window.pasteDate || function(day){
+    if (!window.copiedDate){
+        alert('Copy another date first');
+        return;
+    }
+    var json_date = window.copiedDate;
+    var date = $.evalJSON(json_date);
+
+    //set hidden input to the new value
+    $('#'+day+'_field').val(json_date);
+    
+    //adjust rows
+    while ($('#'+ day +" input").length < date.length){
+        addrow(day);
+    }
+
+    $('#'+ day +" input").each(function(i){
+        $(this).val(date[i]);
+    });
+}
+
+addrow = window.addrow || function(day){
+    var tr = $('#'+ day +" tr:last");
+    var id = tr.attr('id');
+    var split_id = id.split('_');
+    var id_num = parseInt(split_id[1]);
+
+    var clonedRow = tr.clone()
+        .attr("id", split_id[0]+'_'+(id_num+1));
+    $('input', clonedRow).val('') //reset input values (they're cloned from the upper row)
+        .change(fieldChange);
+    $(tr).parent().append(clonedRow);
+
+};
+</script>

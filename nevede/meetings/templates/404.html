@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% comment %}
+
+LICENSE: AGPL 3.0
+Author: Name: Davide, Surname: Setti, email: NAME.SURNAME@gmail.com
+Copyright: Fondazione Bruno Kessler (www.fbk.eu), 2008
+
+{% endcomment %}
+{% block title %}404 Page Not Found - {{block.super}}{% endblock %}
+
+{% block content %}
+    <h1>Page Not Found</h1>
+    
+    <p>The requested URL {{ request.path|escape }} was not found on this server.</p>
+
+{% endblock %}
+

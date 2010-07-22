@@ -1,0 +1,93 @@
+#hd {
+  height: 100px;
+  background: #85acf7 url('../images/hidr.jpg');
+  margin: 0 25px;
+}
+
+#hd h1 {
+  padding-left: 17px;
+  padding-top: 22px;
+  font-size: 22px;
+  color: white;
+}
+
+#hd h1 a {
+  font-size: 22px;
+  color: white;
+  text-decoration: none;
+}
+
+#hd h2 {
+  padding-left: 17px;
+  padding-top: 0px;
+  font-size: 17px;
+  color: white;
+  font-weight: bold;
+}
+
+#doc {
+  margin-top: 40px;
+  padding: 20px;
+  background: white;
+}
+
+#doc .sb-inner {
+  background: white;
+}
+
+#my-border {
+  padding-top: 40px;
+  min-height: 400px;
+}
+
+#breadcrumbs {
+  background: #f6f9fb;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 5px;
+  margin: 0 25px;
+}
+
+a,
+.a {
+  color: #3d82ad;
+}
+
+html,
+span {
+  color: #636363;
+}
+
+ul li {
+  color: #3d82ad;
+}
+
+li {
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.right h2 {
+  color: #3d82ad;
+}
+
+.meeting-list-date {
+  color: #999999;
+  font-size: 80%;
+}
+
+.meeting-comment-date {
+  color: #999999;
+  font-size: 80%;
+}
+
+.comment-form-container fieldset {
+  border: 1px solid #dddddd;
+}
+
+.comment-form-container fieldset legend {
+  color: #636363;
+}
+
+.a:hover {
+  cursor: pointer;
+}

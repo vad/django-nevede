@@ -1,0 +1,84 @@
+// LICENSE: AGPL 3.0
+// Author: Name: Davide, Surname: Setti, email: NAME.SURNAME@gmail.com
+// Copyright: Fondazione Bruno Kessler (www.fbk.eu), 2008
+
+//link_color = #3B6EBF
+link_color = #3d82ad
+
+#hd:
+    height: 100px
+    background: #85ACF7 url('../images/hidr.jpg')
+    margin: 0 25px
+
+    h1:
+        padding-left: 17px
+        padding-top: 22px
+        font-size: 22px
+        color: white
+    
+        a:
+            font-size: 22px
+            color: white
+            text-decoration: none
+
+    h2:
+        padding-left: 17px
+        padding-top: 0px
+        font-size: 17px
+        color: white
+        font-weight: bold
+
+#doc:
+//    /*border: 1px solid lightGray*/
+    margin-top: 40px
+    padding: 20px
+    background: white
+
+    .sb-inner:
+        background: white
+
+#my-border:
+    padding-top: 40px
+    min-height: 400px
+
+#breadcrumbs:
+    background: #F6F9FB
+    border-bottom: 1px solid #E1E1E1 
+    padding: 5px
+    margin: 0 25px
+
+// FONTS
+a, .a:
+    color: $link_color
+    
+html,span:
+    color: #636363
+
+// END FONTS
+
+ul li:
+    color: $link_color
+
+li:
+    line-height: 1.2
+    margin-bottom: 10px
+
+.right h2:
+    color: $link_color
+
+.meeting-list-date:
+    color: #999
+    font-size: 80%
+
+.meeting-comment-date:
+    color: #999
+    font-size: 80%
+
+.comment-form-container fieldset:
+    border: 1px solid #dddddd
+
+.comment-form-container fieldset legend:
+    color: #636363
+
+.a:hover:
+    cursor: pointer

@@ -1,0 +1,142 @@
+// LICENSE: AGPL 3.0
+// Author: Name: Davide, Surname: Setti, email: NAME.SURNAME@gmail.com
+// Copyright: Fondazione Bruno Kessler (www.fbk.eu), 2008
+
+table.jCalendar: 
+    background: #aaa
+    border-collapse: separate
+    border-spacing: 1px
+
+    th: 
+        background: #333
+        color: white
+        font-weight: bold
+        padding: 3px 5px
+        text-align: center
+
+    td: 
+        background: white
+        color: black
+        text-align: center
+        padding: 1px
+
+        p: 
+            display: block
+            height: 100%
+            padding: 8px 14px
+            margin: 0
+
+    td.other-month, td.other-month:hover p:
+        background: #ddd
+        color: #aaa
+
+    td.today:
+        background: white
+        color: black
+
+    td.selected p: 
+        background: #85ACF7
+        color: white
+
+    td.selected:hover p:
+        background: #B3D4FF
+        color: white
+
+    td:hover p, td.dp-hover p:
+        background: #B3D4FF
+        color: black
+
+    td.disabled, td.disabled:hover p:
+        background: #ddd !important
+        color: #888
+
+// For the popup
+
+// NOTE - you will probably want to style a.dp-choose-date - see how I did it in demo.css
+
+div.dp-popup: 
+    position: relative
+    background: #f2f2f2
+    font-size: 10px
+    font-family: sans-serif
+    padding: 2px
+    width: 303px
+    line-height: 1.2em
+    color: black
+
+    h2: 
+        font-size: 12px
+        text-align: center
+        margin: 2px 0
+        padding: 3px 0 8px 0
+
+    div.dp-nav-prev: 
+        position: absolute
+        top: 12px
+        left: 10px
+        width: 100px
+
+        a: 
+            float: left
+
+    div.dp-nav-next: 
+        position: absolute
+        top: 12px
+        right: 10px
+        width: 100px
+
+        a: 
+            float: right
+
+    ///* Opera needs the rules to be this specific otherwise it doesn't change the cursor back to pointer after you have disabled and re-enabled a link */
+    div.dp-nav-prev a, div.dp-nav-next a: 
+        cursor: pointer
+
+    div.dp-nav-prev a.disabled, div.dp-nav-next a.disabled: 
+        cursor: default
+        opacity: 0.5
+        filter: alpha(opacity=50)
+        -khtml-opacity: 0.5
+        -moz-opacity: 0.5
+
+    a.disabled: 
+        cursor: default
+        color: #999
+
+    td: 
+        cursor: pointer
+
+        &.disabled: 
+            cursor: default
+
+div.dp-popup-inline: 
+    border: 1px solid #808080
+    padding: 10px
+
+div#dp-popup: 
+    position: absolute
+    z-index: 199
+
+a#dp-close: 
+    font-size: 11px
+    padding: 4px 0
+    text-align: center
+    display: block
+
+    &:hover:
+        text-decoration: underline
+
+
+a.dp-nav-next-year, a.dp-nav-prev-year: 
+    display: none
+
+a.dp-nav-prev-month: 
+    background: transparent url(../images/yui-sam-sprite.png) no-repeat scroll 0 (-450px)
+    width: 25px
+    height: 15px
+
+a.dp-nav-next-month: 
+    background: transparent url(../images/yui-sam-sprite.png) no-repeat scroll 0 (-500px)
+    width: 25px
+    height: 15px
+

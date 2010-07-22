@@ -1,0 +1,5 @@
+{{user}} has just voted '{{meeting.title}}'. You can find it on:
+
+http://{{site.domain}}{{meeting.get_absolute_url}}
+
+If you haven't created this meeting using {{site.domain}} please ignore this message.

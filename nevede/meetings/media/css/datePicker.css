@@ -1,0 +1,165 @@
+table.jCalendar {
+  background: #aaaaaa;
+  border-collapse: separate;
+  border-spacing: 1px;
+}
+
+table.jCalendar th {
+  background: #333333;
+  color: white;
+  font-weight: bold;
+  padding: 3px 5px;
+  text-align: center;
+}
+
+table.jCalendar td {
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 1px;
+}
+
+table.jCalendar td p {
+  display: block;
+  height: 100%;
+  padding: 8px 14px;
+  margin: 0;
+}
+
+table.jCalendar td.other-month,
+table.jCalendar td.other-month:hover p {
+  background: #dddddd;
+  color: #aaaaaa;
+}
+
+table.jCalendar td.today {
+  background: white;
+  color: black;
+}
+
+table.jCalendar td.selected p {
+  background: #85acf7;
+  color: white;
+}
+
+table.jCalendar td.selected:hover p {
+  background: #b3d4ff;
+  color: white;
+}
+
+table.jCalendar td:hover p,
+table.jCalendar td.dp-hover p {
+  background: #b3d4ff;
+  color: black;
+}
+
+table.jCalendar td.disabled,
+table.jCalendar td.disabled:hover p {
+  background: #dddddd !important;
+  color: #888888;
+}
+
+div.dp-popup {
+  position: relative;
+  background: #f2f2f2;
+  font-size: 10px;
+  font-family: sans-serif;
+  padding: 2px;
+  width: 303px;
+  line-height: 1.2em;
+  color: black;
+}
+
+div.dp-popup h2 {
+  font-size: 12px;
+  text-align: center;
+  margin: 2px 0;
+  padding: 3px 0 8px 0;
+}
+
+div.dp-popup div.dp-nav-prev {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  width: 100px;
+}
+
+div.dp-popup div.dp-nav-prev a {
+  float: left;
+}
+
+div.dp-popup div.dp-nav-next {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  width: 100px;
+}
+
+div.dp-popup div.dp-nav-next a {
+  float: right;
+}
+
+div.dp-popup div.dp-nav-prev a,
+div.dp-popup div.dp-nav-next a {
+  cursor: pointer;
+}
+
+div.dp-popup div.dp-nav-prev a.disabled,
+div.dp-popup div.dp-nav-next a.disabled {
+  cursor: default;
+  opacity: 0.5;
+  filter: alpha opacity=50;
+  -khtml-opacity: 0.5;
+  -moz-opacity: 0.5;
+}
+
+div.dp-popup a.disabled {
+  cursor: default;
+  color: #999999;
+}
+
+div.dp-popup td {
+  cursor: pointer;
+}
+
+div.dp-popup td.disabled {
+  cursor: default;
+}
+
+div.dp-popup-inline {
+  border: 1px solid #808080;
+  padding: 10px;
+}
+
+div#dp-popup {
+  position: absolute;
+  z-index: 199;
+}
+
+a#dp-close {
+  font-size: 11px;
+  padding: 4px 0;
+  text-align: center;
+  display: block;
+}
+
+a#dp-close:hover {
+  text-decoration: underline;
+}
+
+a.dp-nav-next-year,
+a.dp-nav-prev-year {
+  display: none;
+}
+
+a.dp-nav-prev-month {
+  background: transparent url(../images/yui-sam-sprite.png) no-repeat scroll 0 -450px;
+  width: 25px;
+  height: 15px;
+}
+
+a.dp-nav-next-month {
+  background: transparent url(../images/yui-sam-sprite.png) no-repeat scroll 0 -500px;
+  width: 25px;
+  height: 15px;
+}

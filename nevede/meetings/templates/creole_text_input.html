@@ -1,0 +1,29 @@
+{% comment %}
+
+LICENSE: AGPL 3.0
+Author: Name: Davide, Surname: Setti, email: NAME.SURNAME@gmail.com
+Copyright: Fondazione Bruno Kessler (www.fbk.eu), 2008
+
+{% endcomment %}
+
+<textarea class="creole" name="{{name}}" style="line-height:100%;min-height:50px;"></textarea>
+<p><b>Description preview:</b></p>
+<div class="{{name}} creole-preview corner-all"></div>
+
+<script>
+    $(document).ready(function(){
+        var creole = new Parse.Simple.Creole( {
+            linkFormat: ''
+        });
+
+        $('textarea[name="{{name}}"]')
+            .autogrow()
+            .keyup(function(){
+                var preview = $('div.{{name}}');
+                preview.html('');
+                creole.parse(preview.get(0), $(this).val());
+            })
+            .keyup();
+
+    });
+</script>

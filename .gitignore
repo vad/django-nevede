@@ -1,0 +1,14 @@
+*.pyc
+*.pyo
+*~
+*.swp
+*.sqlite
+.installed.cfg
+bin
+develop-eggs
+dist
+downloads
+eggs
+parts
+nevede/*.egg-info
+

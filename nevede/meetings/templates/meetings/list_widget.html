@@ -1,0 +1,14 @@
+{% comment %}
+
+LICENSE: AGPL 3.0
+Author: Name: Davide, Surname: Setti, email: NAME.SURNAME@gmail.com
+Copyright: Fondazione Bruno Kessler (www.fbk.eu), 2008
+
+{% endcomment %}
+{% if meetings %}
+    {% for meeting in meetings %}
+        <li><a href="{{path}}view/{{meeting.hidden_id}}/">{{ meeting.title }}</a><span class="meeting-list-date"> - created on {{meeting.created|date:"Y b d"}}</span></li>
+    {% endfor %}
+{% else %}
+    <p>No meetings are available.</p>
+{% endif %}

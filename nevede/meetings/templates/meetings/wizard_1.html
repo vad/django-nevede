@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% comment %}
+
+LICENSE: AGPL 3.0
+Author: Name: Davide, Surname: Setti, email: NAME.SURNAME@gmail.com
+Copyright: Fondazione Bruno Kessler (www.fbk.eu), 2008
+
+{% endcomment %}
+
+{% block title %}Create meeting: step {{ step }} of {{ step_count }} - {{super.block}}{% endblock %}
+{% block breadcrumbs %}{{block.super}} · <a href="/meetings/create/">Create meeting</a>
+· Step {{ step }} of {{ step_count }} {% endblock %}
+
+{% block content %}
+<script type="text/javascript" src="{{MEDIA_URL}}/js/jquery.json.js"></script>
+<p></p>
+<div class="form-create">
+<form action="." method="post">{% csrf_token %}
+<table>
+{{ form.as_table }}
+</table>
+<input type="hidden" name="{{ step_field }}" value="{{ step0 }}" />
+{{ previous_fields|safe }}
+<input type="submit" value="Create" class="button submit" />
+</form>
+</div>
+
+<script>
+function aFieldNotNull(){
+    var fields = $('input.hours-json');
+
+    for (var j=0; j < fields.length; j++){
+        var val = $(fields[j]).val();
+       
+        // if val is an empty string
+        if (!val) continue;
+
+        var choices = $.evalJSON(val);
+        for (var i=0; i < choices.length; i++){
+            if (choiches[i])
+                return true;
+        };
+    };
+    return false;
+}
+
+$(document).ready(function(){
+    $('.form-create form').submit(function(){
+        // submit if one or more field is not null
+        if (aFieldNotNull()) {
+            return true;
+        } else {
+            alert('Please compile at least a field');
+            return false;
+        }
+    });
+});
+
+</script>
+
+{% endblock %}
+

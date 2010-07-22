@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="float:left">
+
+    <p>With Nevede, you can easily schedule an event.</p><p>No more tons of organizational emails among participants cluttering your inbox!</p>
+
+    <ol style="margin:20px 0">
+        <li><span>You <a href="create/">create</a> an event.</span></li>
+        <li><span>Each participant goes to the event web page and expresses her/his availability.</span></li>
+        <li><span>The web page gives a quick view on the best timeslot for the meeting.</span></li>
+        <li><span>Bing! Everybody meets at the agreed timeslot.</span></li>
+    </ol>
+
+    <br/>
+    <div class="box">
+        <center>
+            <a href="create/"><img src="{{MEDIA_URL}}/images/create_meeting_button.png" style="vertical-align:bottom" /></a>
+        </center>
+    </div>
+
+</div>
+<div class="right">
+    <div class="box">
+        <h2><a href="list/">Latest meetings</a></h2>
+        <ul>
+            {% include "meetings/list_widget.html" %}
+        </ul>
+    </div>
+    <div class="box">
+        <h2>Info</h2>
+        <ul>
+        <li>
+        <a href="credits/">Credits</a>
+        </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% comment %}
+
+LICENSE: AGPL 3.0
+Author: Name: Davide, Surname: Setti, email: NAME.SURNAME@gmail.com
+Copyright: Fondazione Bruno Kessler (www.fbk.eu), 2008
+
+{% endcomment %}

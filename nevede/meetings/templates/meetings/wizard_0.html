@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% comment %}
+
+LICENSE: AGPL 3.0
+Author: Name: Davide, Surname: Setti, email: NAME.SURNAME@gmail.com
+Copyright: Fondazione Bruno Kessler (www.fbk.eu), 2008-2010
+
+{% endcomment %}
+
+{% block title %}Create meeting: step {{ step }} of {{ step_count }} - {{super.block}}{% endblock %}
+{% block breadcrumbs %}{{block.super}} · <a href="/meetings/create/">Create meeting</a>
+· Step {{ step }} of {{ step_count }} {% endblock %}
+
+{% block content %}
+<script type="text/javascript" src="{{MEDIA_URL}}/js/bb.creoleparser.min.js"></script>
+<script type="text/javascript" src="{{MEDIA_URL}}/js/jquery.autogrow.js"></script>
+<script type="text/javascript" src="{{MEDIA_URL}}/js/date.min.js"></script>
+<script type="text/javascript" src="{{MEDIA_URL}}/js/jquery.datePicker.min.js"></script>
+
+<p></p>
+<div class="form-create">
+<form action="." method="post">{% csrf_token %}
+<table>
+{{ form.as_table }}
+</table>
+<input type="hidden" name="{{ step_field }}" value="{{ step0 }}" />
+{{ previous_fields|safe }}
+<input type="submit" value="Next" class="button submit" />
+</form>
+</div>
+
+{% endblock %}
