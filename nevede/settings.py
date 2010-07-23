@@ -82,7 +82,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'nevede.meetings',
     'django_extensions',
-    'nevede.vendors.devserver',
+    'cpserver',
     # keep this under 'nevede.meetings' for template loading priority
     'django.contrib.comments',
 )
