@@ -9,7 +9,7 @@ No more tons of organizational emails among participants cluttering your inbox!
 * Bing! Everybody meets at the agreed timeslot.
 
 ## Nevede in action
-There's a running instance of nevede at http://nevede.com. Please, mark your meetings as "Private" if they're only for test purposes. Feel free to use it!
+There's a running instance of nevede at [nevede.com](http://nevede.com). Please, mark your meetings as "Private" if they're only for test purposes. Feel free to use it!
 
 ## Nevede features
 * meeting scheduling
